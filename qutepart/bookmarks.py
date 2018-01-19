@@ -13,7 +13,7 @@ class Bookmarks:
     def __init__(self, qpart, markArea):
         self._qpart = qpart
         self._markArea = markArea
-        qpart.toggleBookmarkAction = self._createAction(qpart, "bookmark.png", "Toogle bookmark", 'Ctrl+B',
+        qpart.toggleBookmarkAction = self._createAction(qpart, "bookmark.svg", "Toogle bookmark", 'Ctrl+B',
                                                         self._onToggleBookmark)
         qpart.prevBookmarkAction = self._createAction(qpart, "up.png", "Previous bookmark", 'Alt+PgUp',
                                                       self._onPrevBookmark)

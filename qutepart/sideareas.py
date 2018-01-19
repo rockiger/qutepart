@@ -64,10 +64,11 @@ class LineNumberArea(QWidget):
                 painter.drawText(self._LEFT_MARGIN, top,
                                  availableWidth, availableHeight,
                                  Qt.AlignRight, number)
-                if boundingRect.height() >= singleBlockHeight * 2:  # wrapped block
-                    painter.fillRect(1, top + singleBlockHeight,
-                                     self.__width - 2, boundingRect.height() - singleBlockHeight - 2,
-                                     Qt.darkGreen)
+                # if boundingRect.height() >= singleBlockHeight * 2:  # wrapped block
+                #     painter.fillRect(1, top + singleBlockHeight,
+                #                      self.__width - 2, boundingRect.height() - singleBlockHeight - 2,
+                #                      self.palette().color(QPalette.Highlight))
+
 
             block = block.next()
             boundingRect = self._qpart.blockBoundingRect(block)
@@ -103,10 +104,10 @@ class MarkArea(QWidget):
 
         self.setMouseTracking(True)
 
-        self._bookmarkPixmap = self._loadIcon('bookmark.png')
-        self._lintPixmaps = {qpart.LINT_ERROR: self._loadIcon('lint-error.png'),
-                             qpart.LINT_WARNING: self._loadIcon('lint-warning.png'),
-                             qpart.LINT_NOTE: self._loadIcon('lint-note.png')}
+        self._bookmarkPixmap = self._loadIcon('bookmark.svg')
+        self._lintPixmaps = {qpart.LINT_ERROR: self._loadIcon('lint-error.svg'),
+                             qpart.LINT_WARNING: self._loadIcon('lint-warning.svg'),
+                             qpart.LINT_NOTE: self._loadIcon('lint-note.svg')}
 
         self._bookmarks = Bookmarks(qpart, self)
 
@@ -174,4 +175,3 @@ class MarkArea(QWidget):
     def clear(self):
         self._bookmarks.removeActions()
         MarginBase.clear(self)
-
